@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolidWorks 实战学习站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="SolidWorks Logo" height="40">
+                <span>SolidWorks 实战学习站</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li><a href="sketches.html">草图</a></li>
+                <li><a href="parts.html">零件</a></li>
+                <li><a href="assemblies.html">装配体</a></li>
+                <li><a href="drawings.html">工程图</a></li>
+                <li><a href="simulation.html">仿真分析</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主页英雄区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>从理论到实践，精通 SolidWorks</h1>
+            <p>这是一个集成了从草图绘制到有限元分析实例的一站式学习资源库。通过实际案例，深化你对指令的理解。</p>
+            <a href="#modules" class="cta-button">开始探索</a>
+        </div>
+    </section>
+
+    <!-- 模块介绍 -->
+    <section id="modules" class="modules">
+        <h2>学习模块</h2>
+        <div class="module-grid">
+            <div class="module-card">
+                <img src="images/sketch-demo.png" alt="草图模块">
+                <h3>草图指令</h3>
+                <p>学习如何运用约束、尺寸和关系，创建完全定义的参数化草图。</p>
+                <a href="sketches.html" class="module-link">查看详情 →</a>
+            </div>
+            <div class="module-card">
+                <img src="images/part-demo.png" alt="零件模块">
+                <h3>零件建模</h3>
+                <p>掌握拉伸、旋转、扫描、放样等核心特征，创建复杂三维模型。</p>
+                <a href="parts.html" class="module-link">查看详情 →</a>
+            </div>
+            <div class="module-card">
+                <img src="images/assembly-demo.png" alt="装配体模块">
+                <h3>装配体设计</h3>
+                <p>了解配合关系，学习自下而上和自上而下的装配体设计方法。</p>
+                <a href="assemblies.html" class="module-link">查看详情 →</a>
+            </div>
+            <div class="module-card">
+                <img src="images/drawing-demo.png" alt="工程图模块">
+                <h3>工程图出图</h3>
+                <p>将3D模型转换为标准2D工程图，包含标注、注释和BOM表。</p>
+                <a href="drawings.html" class="module-link">查看详情 →</a>
+            </div>
+            <div class="module-card">
+                <img src="images/simulation-demo.png" alt="仿真模块">
+                <h3>仿真分析 (FEA)</h3>
+                <p>应用有限元分析，对模型进行静应力、位移和安全性评估。</p>
+                <a href="simulation.html" class="module-link">查看详情 →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2023 SolidWorks 实战学习站. 致力于帮助每一位工程师。</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
