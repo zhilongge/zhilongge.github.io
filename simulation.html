@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿真分析 - SolidWorks 学习站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="SolidWorks Logo" height="40">
+                <span>SolidWorks 实战学习站</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="sketches.html">草图</a></li>
+                <li><a href="parts.html">零件</a></li>
+                <li><a href="assemblies.html">装配体</a></li>
+                <li><a href="drawings.html">工程图</a></li>
+                <li><a href="simulation.html" class="active">仿真分析</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <h2>仿真分析 (FEA)</h2>
+        <p>应用有限元分析来模拟零件在实际工况下的力学表现，验证设计的可靠性。</p>
+        
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="images/simulation-demo.png" alt="应力分析示例">
+                <p>图1：静态应力分析结果，显示冯·米塞斯应力分布云图。</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=你的仿真图片" alt="位移分析示例">
+                <p>图2：位移结果云图，显示受力后的变形（请替换为你的图片）。</p>
+            </div>
+             <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=你的仿真图片" alt="安全系数示例">
+                <p>图3：安全系数分布图，评估设计的安全性（请替换为你的图片）。</p>
+            </div>
+        </div>
+
+        <h3>核心知识点与流程：</h3>
+        <ol>
+            <li><strong>前期准备</strong>：简化模型（去除圆角、小孔等），定义分析目的。</li>
+            <li><strong>应用材料</strong>：从库中选择或自定义材料属性（弹性模量、泊松比、屈服强度）。</li>
+            <li><strong>定义夹具</strong>：施加固定几何体、滚柱/滑杆、对称等约束条件。</li>
+            <li><strong>施加载荷</strong>：施加力、压力、扭矩、引力等。</li>
+            <li><strong>网格划分</strong>：自动或手动控制网格大小和精度。</li>
+            <li><strong>运行分析</strong>：求解计算。</li>
+            <li><strong>结果解读</strong>：分析应力、位移、应变、安全系数等云图，撰写报告。</li>
+        </ol>
+    </main>
+
+    <footer>
+        <p>© 2023 SolidWorks 实战学习站. 致力于帮助每一位工程师。</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
