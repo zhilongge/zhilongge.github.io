@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -17,6 +19,12 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            transition: background-color 0.3s;
+        }
+        
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
         }
         
         /* 导航栏样式 */
@@ -36,6 +44,7 @@
         .logo {
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
         
         .logo-text {
@@ -81,7 +90,22 @@
             padding: 0 20px;
         }
         
-        /* 标题区域 */
+        /* 页面内容 */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* 主页样式 */
         .hero {
             text-align: center;
             padding: 60px 0;
@@ -119,6 +143,11 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+        }
+        
+        body.dark-mode .stage-card {
+            background: #1e1e1e;
         }
         
         .stage-card:hover {
@@ -163,6 +192,10 @@
             border-radius: 12px;
             margin-bottom: 20px;
             border-left: 4px solid #0066cc;
+        }
+        
+        body.dark-mode .learning-goal {
+            background-color: #1a2a3a;
         }
         
         .learning-goal h3 {
@@ -210,6 +243,155 @@
             left: 0;
         }
         
+        /* 专业页面样式（黑色背景+天空蓝） */
+        .professional-page {
+            background-color: #121212;
+            color: #e0e0e0;
+            min-height: calc(100vh - 70px);
+            padding: 40px 0;
+            margin-top: 70px;
+        }
+        
+        .professional-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .professional-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .professional-header h1 {
+            font-size: 2.5rem;
+            color: #4fc3f7;
+            margin-bottom: 20px;
+        }
+        
+        .professional-header p {
+            font-size: 1.2rem;
+            color: #90caf9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .content-card {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            border: 1px solid #2c2c2c;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            border-color: #4fc3f7;
+        }
+        
+        .content-card h3 {
+            color: #4fc3f7;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .content-card p {
+            margin-bottom: 15px;
+            color: #b0b0b0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #0288d1, #4fc3f7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* 阶段详情页面 */
+        .stage-detail {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        body.dark-mode .stage-detail {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        .stage-detail-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        .stage-detail-header h1 {
+            color: #0066cc;
+            font-size: 2rem;
+        }
+        
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .detail-section {
+            margin-bottom: 25px;
+        }
+        
+        .detail-section h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        body.dark-mode .detail-section h3 {
+            color: #4fc3f7;
+            border-bottom: 1px solid #333;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: #004d99;
+            transform: translateX(-5px);
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
             .nav-links {
@@ -223,6 +405,10 @@
             .stages-container {
                 grid-template-columns: 1fr;
             }
+            
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* 页脚样式 */
@@ -233,215 +419,446 @@
             color: #666;
             border-top: 1px solid #eaeaea;
         }
+        
+        body.dark-mode footer {
+            color: #aaa;
+            border-top: 1px solid #333;
+        }
     </style>
 </head>
 <body>
     <!-- 导航栏 -->
     <nav>
-        <div class="logo">
+        <div class="logo" onclick="showPage('home')">
             <i class="fas fa-drafting-compass"></i>
             <div class="logo-text">SolidWorks学习平台</div>
         </div>
         <ul class="nav-links">
-            <li><a href="#" class="active">首页</a></li>
-            <li><a href="#">学习资源</a></li>
-            <li><a href="#">模型库</a></li>
-            <li><a href="#">教程</a></li>
+            <li><a href="#" class="active" onclick="showPage('home')">首页</a></li>
+            <li><a href="#" onclick="showPage('resources')">学习资源</a></li>
+            <li><a href="#" onclick="showPage('models')">模型库</a></li>
+            <li><a href="#" onclick="showPage('tutorials')">教程</a></li>
         </ul>
     </nav>
 
-    <!-- 主内容区域 -->
-    <div class="container">
-        <!-- 标题区域 -->
-        <section class="hero">
-            <h1>SolidWorks专业学习路径</h1>
-            <p>从零开始，系统掌握SolidWorks设计与仿真技能</p>
-        </section>
+    <!-- 主页内容 -->
+    <div id="home" class="page active">
+        <div class="container">
+            <!-- 标题区域 -->
+            <section class="hero">
+                <h1>SolidWorks专业学习路径</h1>
+                <p>从零开始，系统掌握SolidWorks设计与仿真技能</p>
+            </section>
 
-        <!-- 阶段一 -->
-        <section class="stage-card">
-            <div class="stage-header">
-                <div class="stage-number">1</div>
-                <h2 class="stage-title">打下坚实基础</h2>
-            </div>
-            <div class="stage-content">
-                <div class="learning-goal">
-                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
-                    <p>熟悉SolidWorks界面、掌握基本文件操作和视图控制。</p>
+            <!-- 阶段一 -->
+            <section class="stage-card" onclick="showStageDetail(1)">
+                <div class="stage-header">
+                    <div class="stage-number">1</div>
+                    <h2 class="stage-title">打下坚实基础</h2>
                 </div>
-                
-                <div class="resources">
-                    <h4><i class="fas fa-book"></i>学习资源</h4>
-                    <ul>
-                        <li>官方内置教程：打开SolidWorks，点击【帮助】→【SolidWorks教程】</li>
-                        <li>图书参考：《SOLIDWORKS 2022中文版从入门到精通》或《SOLIDWORKS 2024中文版机械设计从入门到精通》的概述章节</li>
-                    </ul>
+                <div class="stage-content">
+                    <div class="learning-goal">
+                        <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                        <p>熟悉SolidWorks界面、掌握基本文件操作和视图控制。</p>
+                    </div>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i>学习资源</h4>
+                        <ul>
+                            <li>官方内置教程：打开SolidWorks，点击【帮助】→【SolidWorks教程】</li>
+                            <li>图书参考：《SOLIDWORKS 2022中文版从入门到精通》</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="website-content">
+                        <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                        <ul>
+                            <li>学习笔记：用图文记录软件安装、界面布局、自定义设置的过程和心得</li>
+                            <li>术语表：创建一个"SolidWorks核心术语"页面</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="website-content">
-                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
-                    <ul>
-                        <li>学习笔记：用图文记录软件安装、界面布局、自定义设置的过程和心得</li>
-                        <li>术语表：创建一个"SolidWorks核心术语"页面，解释"特征管理器"、"设计树"、"基准面"等概念</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 阶段二 -->
-        <section class="stage-card">
-            <div class="stage-header">
-                <div class="stage-number">2</div>
-                <h2 class="stage-title">草图绘制——一切建模的根基</h2>
-            </div>
-            <div class="stage-content">
-                <div class="learning-goal">
-                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
-                    <p>熟练掌握各种草图工具、完全定义草图（几何关系与尺寸约束）。</p>
+            <!-- 阶段二 -->
+            <section class="stage-card" onclick="showStageDetail(2)">
+                <div class="stage-header">
+                    <div class="stage-number">2</div>
+                    <h2 class="stage-title">草图绘制——一切建模的根基</h2>
                 </div>
-                
-                <div class="resources">
-                    <h4><i class="fas fa-book"></i>学习资源</h4>
-                    <ul>
-                        <li>官方教程：继续学习SolidWorks自带教程中的草图部分</li>
-                        <li>系统练习：寻找100张平面草图练习题</li>
-                        <li>视频教程：在B站搜索"SolidWorks 草图教程"，观看播放量高的系列视频</li>
-                    </ul>
+                <div class="stage-content">
+                    <div class="learning-goal">
+                        <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                        <p>熟练掌握各种草图工具、完全定义草图（几何关系与尺寸约束）。</p>
+                    </div>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i>学习资源</h4>
+                        <ul>
+                            <li>官方教程：继续学习SolidWorks自带教程中的草图部分</li>
+                            <li>系统练习：寻找100张平面草图练习题</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="website-content">
+                        <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                        <ul>
+                            <li>练习存档：将你练习的100张草图截图整理发布</li>
+                            <li>技巧总结：写一篇"完全定义草图的十大技巧"</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="website-content">
-                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
-                    <ul>
-                        <li>练习存档：将你练习的100张草图截图（标注尺寸的最终状态）整理发布，并附上难点和技巧</li>
-                        <li>技巧总结：写一篇"完全定义草图的十大技巧"或"常见草图错误及解决方法"的文章</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 阶段三 -->
-        <section class="stage-card">
-            <div class="stage-header">
-                <div class="stage-number">3</div>
-                <h2 class="stage-title">零件建模——从二维到三维的飞跃</h2>
-            </div>
-            <div class="stage-content">
-                <div class="learning-goal">
-                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
-                    <p>掌握核心特征工具（拉伸、旋转、扫描、放样）、应用放置特征（圆角、倒角、抽壳、孔）、学会特征编辑（阵列、镜像）。</p>
+            <!-- 阶段三 -->
+            <section class="stage-card" onclick="showStageDetail(3)">
+                <div class="stage-header">
+                    <div class="stage-number">3</div>
+                    <h2 class="stage-title">零件建模——从二维到三维的飞跃</h2>
                 </div>
-                
-                <div class="resources">
-                    <h4><i class="fas fa-book"></i>学习资源</h4>
-                    <ul>
-                        <li>图书实例：精学《SOLIDWORKS 2022中文版从入门到精通》中的第3、4、5章</li>
-                        <li>大量练习：寻找所谓的"SolidWorks 300例"图纸或练习资源进行实战</li>
-                        <li>视频辅助：当某个特征遇到困难时，去B站搜索具体关键词教程</li>
-                    </ul>
+                <div class="stage-content">
+                    <div class="learning-goal">
+                        <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                        <p>掌握核心特征工具（拉伸、旋转、扫描、放样）、应用放置特征。</p>
+                    </div>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i>学习资源</h4>
+                        <ul>
+                            <li>图书实例：精学《SOLIDWORKS 2022中文版从入门到精通》中的第3、4、5章</li>
+                            <li>大量练习：寻找所谓的"SolidWorks 300例"图纸</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="website-content">
+                        <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                        <ul>
+                            <li>模型库：将你练习的经典模型整理并提供下载</li>
+                            <li>建模过程：录制一些复杂模型的建模过程屏幕录像</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="website-content">
-                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
-                    <ul>
-                        <li>模型库：将你练习的经典模型整理并提供下载（注意只分享你自己的练习成果）</li>
-                        <li>建模过程：录制一些复杂模型的建模过程屏幕录像，并配文解释你的建模思路和步骤</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 阶段四 -->
-        <section class="stage-card">
-            <div class="stage-header">
-                <div class="stage-number">4</div>
-                <h2 class="stage-title">装配体设计——让零件"动"起来</h2>
-            </div>
-            <div class="stage-content">
-                <div class="learning-goal">
-                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
-                    <p>理解并应用各种配合关系、掌握自下而上和自上而下的设计方法、进行干涉检查、创建爆炸视图。</p>
+            <!-- 阶段四 -->
+            <section class="stage-card" onclick="showStageDetail(4)">
+                <div class="stage-header">
+                    <div class="stage-number">4</div>
+                    <h2 class="stage-title">装配体设计——让零件"动"起来</h2>
                 </div>
-                
-                <div class="resources">
-                    <h4><i class="fas fa-book"></i>学习资源</h4>
-                    <ul>
-                        <li>官方教程：学习SolidWorks教程中的装配体部分</li>
-                        <li>实战项目：找一些小型装配体的教程开始练习，然后尝试分解一些大型设备的装配过程</li>
-                        <li>标准件库：学习使用Toolbox或设计库插入标准件（如螺栓、轴承）</li>
-                    </ul>
+                <div class="stage-content">
+                    <div class="learning-goal">
+                        <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                        <p>理解并应用各种配合关系、掌握自下而上和自上而下的设计方法。</p>
+                    </div>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i>学习资源</h4>
+                        <ul>
+                            <li>官方教程：学习SolidWorks教程中的装配体部分</li>
+                            <li>实战项目：找一些小型装配体的教程开始练习</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="website-content">
+                        <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                        <ul>
+                            <li>装配过程：撰写图文教程，展示一个装配体的完整装配流程</li>
+                            <li>爆炸视图：展示你制作的爆炸视图动画</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="website-content">
-                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
-                    <ul>
-                        <li>装配过程：撰写图文教程，展示一个装配体的完整装配流程，并解释关键配合的选择</li>
-                        <li>爆炸视图：展示你制作的爆炸视图动画，并说明其工程意义</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 阶段五 -->
-        <section class="stage-card">
-            <div class="stage-header">
-                <div class="stage-number">5</div>
-                <h2 class="stage-title">工程图——与生产对接的桥梁</h2>
-            </div>
-            <div class="stage-content">
-                <div class="learning-goal">
-                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
-                    <p>将3D模型转换为符合标准的2D工程图、创建各种视图（剖视图、局部放大图）、标注尺寸与公差、输出图纸。</p>
+            <!-- 阶段五 -->
+            <section class="stage-card" onclick="showStageDetail(5)">
+                <div class="stage-header">
+                    <div class="stage-number">5</div>
+                    <h2 class="stage-title">工程图——与生产对接的桥梁</h2>
                 </div>
-                
-                <div class="resources">
-                    <h4><i class="fas fa-book"></i>学习资源</h4>
-                    <ul>
-                        <li>图书参考：学习《SOLIDWORKS 2022中文版从入门到精通》第8章（工程图设计）</li>
-                        <li>国标规范：搜索并学习中国国家标准（GB）关于机械制图的规范</li>
-                        <li>练习：为你之前创建的所有重要零件和装配体生成工程图</li>
-                    </ul>
+                <div class="stage-content">
+                    <div class="learning-goal">
+                        <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                        <p>将3D模型转换为符合标准的2D工程图、创建各种视图。</p>
+                    </div>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i>学习资源</h4>
+                        <ul>
+                            <li>图书参考：学习《SOLIDWORKS 2022中文版从入门到精通》第8章</li>
+                            <li>国标规范：搜索并学习中国国家标准（GB）关于机械制图的规范</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="website-content">
+                        <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                        <ul>
+                            <li>工程图示例：展示你的工程图作品</li>
+                            <li>常见问题：总结"工程图转CAD时比例不对"等问题的解决方法</li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="website-content">
-                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
-                    <ul>
-                        <li>工程图示例：展示你的工程图作品，并写文章解释如何设置符合GB的图纸模板、标注样式等</li>
-                        <li>常见问题：总结"工程图转CAD时比例不对"等问题的解决方法</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- 阶段六 -->
-        <section class="stage-card">
-            <div class="stage-header">
-                <div class="stage-number">6</div>
-                <h2 class="stage-title">仿真分析（FEA）——验证设计的利器</h2>
+            <!-- 阶段六 -->
+            <section class="stage-card" onclick="showStageDetail(6)">
+                <div class="stage-header">
+                    <div class="stage-number">6</div>
+                    <h2 class="stage-title">仿真分析（FEA）——验证设计的利器</h2>
+                </div>
+                <div class="stage-content">
+                    <div class="learning-goal">
+                        <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                        <p>了解有限元分析基本流程、进行简单的静应力分析。</p>
+                    </div>
+                    
+                    <div class="resources">
+                        <h4><i class="fas fa-book"></i>学习资源</h4>
+                        <ul>
+                            <li>入门模块：使用SolidWorks内置的SimulationXpress进行初步体验</li>
+                            <li>完整流程：学习《SOLIDWORKS 2022中文版从入门到精通》第10章</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="website-content">
+                        <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                        <ul>
+                            <li>分析案例：展示你的仿真分析项目</li>
+                            <li>最佳实践：分享有限元分析中的技巧和常见错误避免方法</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 学习资源页面 -->
+    <div id="resources" class="page professional-page">
+        <div class="professional-container">
+            <div class="professional-header">
+                <h1><i class="fas fa-book-open"></i> 学习资源中心</h1>
+                <p>精选SolidWorks学习资料、教程和参考书籍</p>
             </div>
-            <div class="stage-content">
-                <div class="learning-goal">
-                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
-                    <p>了解有限元分析基本流程、进行简单的静应力分析、能解读应力、位移、安全系数等结果。</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>官方教程</h3>
+                    <p>SolidWorks内置的官方教程，涵盖从基础到高级的所有功能。</p>
+                    <p>路径: 【帮助】→【SolidWorks教程】</p>
+                    <a href="#" class="btn">查看详情</a>
                 </div>
                 
-                <div class="resources">
-                    <h4><i class="fas fa-book"></i>学习资源</h4>
-                    <ul>
-                        <li>入门模块：使用SolidWorks内置的SimulationXpress（入门版）进行初步体验</li>
-                        <li>完整流程：学习《SOLIDWORKS 2022中文版从入门到精通》第10章（有限元分析）</li>
-                        <li>实例操作：对一个简单的悬臂梁或支架进行应力分析</li>
-                    </ul>
+                <div class="content-card">
+                    <h3>推荐书籍</h3>
+                    <p>《SOLIDWORKS 2022中文版从入门到精通》</p>
+                    <p>《SOLIDWORKS 2024中文版机械设计从入门到精通》</p>
+                    <a href="#" class="btn">查看书单</a>
                 </div>
                 
-                <div class="website-content">
-                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
-                    <ul>
-                        <li>分析案例：展示你的仿真分析项目，解释分析设置和结果解读</li>
-                        <li>最佳实践：分享有限元分析中的技巧和常见错误避免方法</li>
-                    </ul>
+                <div class="content-card">
+                    <h3>视频教程</h3>
+                    <p>精选B站、YouTube上的高质量SolidWorks教学视频系列。</p>
+                    <p>包括草图、建模、装配和工程图等全方位内容。</p>
+                    <a href="#" class="btn">观看视频</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>练习资源</h3>
+                    <p>100张草图练习题、300个零件建模实例、50个装配体项目。</p>
+                    <p>逐步提升你的SolidWorks技能。</p>
+                    <a href="#" class="btn">下载练习</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>认证指南</h3>
+                    <p>CSWA、CSWP等SolidWorks认证考试准备材料和模拟试题。</p>
+                    <p>助力你获得官方认证。</p>
+                    <a href="#" class="btn">备考资源</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>社区论坛</h3>
+                    <p>加入SolidWorks用户社区，与其他设计师交流经验技巧。</p>
+                    <p>获取问题解答和最新资讯。</p>
+                    <a href="#" class="btn">加入讨论</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+
+    <!-- 模型库页面 -->
+    <div id="models" class="page professional-page">
+        <div class="professional-container">
+            <div class="professional-header">
+                <h1><i class="fas fa-cubes"></i> 模型库</h1>
+                <p>丰富的SolidWorks零件与装配体模型资源</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>标准零件库</h3>
+                    <p>螺栓、螺母、轴承、齿轮等标准机械零件模型。</p>
+                    <p>符合国际标准(ISO/ANSI)。</p>
+                    <a href="#" class="btn">浏览零件</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>机械装置</h3>
+                    <p>齿轮箱、连杆机构、传动系统等复杂机械装置模型。</p>
+                    <p>包含运动分析和仿真文件。</p>
+                    <a href="#" class="btn">查看装置</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>工业产品</h3>
+                    <p>完整的工业产品模型，如机器人臂、3D打印机、 CNC机床等。</p>
+                    <p>适合高级学习参考。</p>
+                    <a href="#" class="btn">探索产品</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>原创项目</h3>
+                    <p>社区成员创建的原创模型项目，涵盖各种创新设计。</p>
+                    <p>下载源文件学习建模思路。</p>
+                    <a href="#" class="btn">查看项目</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>模型上传</h3>
+                    <p>分享你的SolidWorks模型，与其他设计师交流学习。</p>
+                    <p>支持.SLDPRT和.SLDASM格式。</p>
+                    <a href="#" class="btn">上传模型</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>模型请求</h3>
+                    <p>需要特定模型？提交请求，社区设计师可能会帮你创建。</p>
+                    <p>免费模型资源。</p>
+                    <a href="#" class="btn">提交请求</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 教程页面 -->
+    <div id="tutorials" class="page professional-page">
+        <div class="professional-container">
+            <div class="professional-header">
+                <h1><i class="fas fa-graduation-cap"></i> 教程中心</h1>
+                <p>一步步学习SolidWorks的详细教程</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>入门教程</h3>
+                    <p>适合初学者的基础教程，包括界面介绍、基本操作和简单建模。</p>
+                    <p>10个循序渐进的学习模块。</p>
+                    <a href="#" class="btn开始学习</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>草图专题</h3>
+                    <p>深入讲解草图工具、几何关系和尺寸约束的高级技巧。</p>
+                    <p>包含20个实战练习。</p>
+                    <a href="#" class="btn">学习草图</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>零件建模</h3>
+                    <p>从简单拉伸到复杂曲面建模，掌握各种特征工具的使用方法。</p>
+                    <p>30个建模实例讲解。</p>
+                    <a href="#" class="btn">学习建模</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>装配设计</h3>
+                    <p>学习自下而上和自上而下的装配设计方法，掌握各种配合关系。</p>
+                    <p>包含15个装配项目。</p>
+                    <a href="#" class="btn">学习装配</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>工程图制作</h3>
+                    <p>创建符合行业标准的工程图，包括视图、标注和表格。</p>
+                    <p>符合GB/ISO标准。</p>
+                    <a href="#" class="btn">学习工程图</a>
+                </div>
+                
+                <div class="content-card">
+                    <h3>仿真分析</h3>
+                    <p>学习使用Simulation进行静应力、频率和热力分析。</p>
+                    <p>10个实际案例分析。</p>
+                    <a href="#" class="btn">学习仿真</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段详情页面 -->
+    <div id="stage-detail" class="page">
+        <div class="container">
+            <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> 返回首页</a>
+            
+            <div class="stage-detail">
+                <div class="stage-detail-header">
+                    <div class="stage-number">1</div>
+                    <h1>打下坚实基础 - 详细学习指南</h1>
+                </div>
+                
+                <div class="detail-content">
+                    <div>
+                        <div class="detail-section">
+                            <h3><i class="fas fa-target"></i> 学习目标</h3>
+                            <p>全面熟悉SolidWorks界面布局和工作环境，掌握基本文件操作和视图控制技巧，为后续学习打下坚实基础。</p>
+                            <ul>
+                                <li>熟悉SolidWorks用户界面和主要工作区</li>
+                                <li>掌握文件管理（新建、打开、保存、另存为）</li>
+                                <li>理解并应用视图操作（缩放、旋转、平移）</li>
+                                <li>学会使用视图定向和显示样式</li>
+                                <li>了解基本系统选项和文档属性设置</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3><i class="fas fa-book"></i> 推荐学习资源</h3>
+                            <ul>
+                                <li><strong>官方内置教程</strong>：通过【帮助】→【SolidWorks教程】访问，这是最权威的学习资源</li>
+                                <li><strong>《SOLIDWORKS 2022中文版从入门到精通》</strong>：第1章"SolidWorks 2022概述"和第2章"SolidWorks 2022的安装"</li>
+                                <li><strong>《SOLIDWORKS 2024中文版机械设计从入门到精通》</strong>：基础操作部分</li>
+                                <li><strong>SolidWorks快速入门指南</strong>：官方提供的PDF文档</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="detail-section">
+                            <h3><i class="fas fa-tasks"></i> 实践任务清单</h3>
+                            <ul>
+                                <li>安装并激活SolidWorks软件</li>
+                                <li>浏览用户界面，识别CommandManager、FeatureManager、PropertyManager等主要区域</li>
+                                <li>创建、保存和关闭新的零件文件</li>
+                                <li>练习视图操作：使用鼠标和键盘进行缩放、旋转和平移</li>
+                                <li>尝试不同的视图定向（前视、上视、等轴测等）</li>
+                                <li>尝试不同的显示样式（线架图、隐藏线可见、带边线上色等）</li>
+                                <li>自定义CommandManager，添加和移除工具栏</li>
+                                <li>设置系统选项和文档属性</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h3><i class="fas fa-lightbulb"></i> 学习提示</h3>
+                            <ul>
+                                <li>花时间熟悉界面布局，这将大大提高后续学习效率</li>
+                                <li>学习使用鼠标手势和快捷键提高操作速度</li>
+                                <li>定期保存工作，防止意外丢失数据</li>
+                                <li>使用"撤销"和"重做"功能纠正错误操作</li>
+                                <li>利用"帮助"菜单中的搜索功能解决具体问题</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -449,27 +866,54 @@
     </footer>
 
     <script>
-        // 简单的滚动效果
+        // 页面切换功能
+        function showPage(pageId) {
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 显示选中的页面
+            document.getElementById(pageId).classList.add('active');
+            
+            // 更新导航栏激活状态
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // 如果是专业页面，启用暗黑模式
+            if (pageId === 'resources' || pageId === 'models' || pageId === 'tutorials') {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+        
+        // 显示阶段详情
+        function showStageDetail(stageNumber) {
+            // 这里可以根据stageNumber加载不同的内容
+            // 目前仅显示一个示例详情页面
+            
+            // 隐藏所有页面
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // 显示阶段详情页面
+            document.getElementById('stage-detail').classList.add('active');
+            
+            // 滚动到顶部
+            window.scrollTo(0, 0);
+        }
+        
+        // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
-            const stageCards = document.querySelectorAll('.stage-card');
-            
-            stageCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                });
-            });
-            
-            // 导航栏激活状态
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
+            // 默认显示主页
+            showPage('home');
         });
     </script>
 </body>
 </html>
-
