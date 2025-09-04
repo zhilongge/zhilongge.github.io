@@ -3,77 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolidWorks 实战学习站</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>您的网站标题</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #4a89dc;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #2a6bc5;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* 导航栏样式 */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        /* 头部区域样式 */
+        header {
+            background: linear-gradient(135deg, #4a89dc 0%, #2a6bc5 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #fff;
+            color: #4a89dc;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 内容区域样式 */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 关于区域样式 */
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            background-color: #eee;
+            height: 300px;
+            border-radius: 10px;
+        }
+        
+        /* 功能/服务区域样式 */
+        .features {
+            background-color: #f5f7fa;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #4a89dc;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* 联系区域样式 */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .about-text, .about-image {
+                flex: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo.png" alt="SolidWorks Logo" height="40">
-                <span>SolidWorks 实战学习站</span>
-            </div>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">您的品牌</a>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">首页</a></li>
-                <li><a href="sketches.html">草图</a></li>
-                <li><a href="parts.html">零件</a></li>
-                <li><a href="assemblies.html">装配体</a></li>
-                <li><a href="drawings.html">工程图</a></li>
-                <li><a href="simulation.html">仿真分析</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#features">功能</a></li>
+                <li><a href="#contact">联系</a></li>
             </ul>
-        </nav>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header>
+        <div class="container header-content">
+            <h1>欢迎来到我们的网站</h1>
+            <p>这里是一段简短而有力的描述，说明您的网站或项目的价值和目的。</p>
+            <a href="#contact" class="btn">了解更多</a>
+        </div>
     </header>
 
-    <!-- 主页英雄区域 -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>从理论到实践，精通 SolidWorks</h1>
-            <p>这是一个集成了从草图绘制到有限元分析实例的一站式学习资源库。通过实际案例，深化你对指令的理解。</p>
-            <a href="#modules" class="cta-button">开始探索</a>
-        </div>
-    </section>
-
-    <!-- 模块介绍 -->
-    <section id="modules" class="modules">
-        <h2>学习模块</h2>
-        <div class="module-grid">
-            <div class="module-card">
-                <img src="images/sketch-demo.png" alt="草图模块">
-                <h3>草图指令</h3>
-                <p>学习如何运用约束、尺寸和关系，创建完全定义的参数化草图。</p>
-                <a href="sketches.html" class="module-link">查看详情 →</a>
+    <!-- 关于区域 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我们</h2>
+                <p>简单介绍您的项目、团队或使命</p>
             </div>
-            <div class="module-card">
-                <img src="images/part-demo.png" alt="零件模块">
-                <h3>零件建模</h3>
-                <p>掌握拉伸、旋转、扫描、放样等核心特征，创建复杂三维模型。</p>
-                <a href="parts.html" class="module-link">查看详情 →</a>
-            </div>
-            <div class="module-card">
-                <img src="images/assembly-demo.png" alt="装配体模块">
-                <h3>装配体设计</h3>
-                <p>了解配合关系，学习自下而上和自上而下的装配体设计方法。</p>
-                <a href="assemblies.html" class="module-link">查看详情 →</a>
-            </div>
-            <div class="module-card">
-                <img src="images/drawing-demo.png" alt="工程图模块">
-                <h3>工程图出图</h3>
-                <p>将3D模型转换为标准2D工程图，包含标注、注释和BOM表。</p>
-                <a href="drawings.html" class="module-link">查看详情 →</a>
-            </div>
-            <div class="module-card">
-                <img src="images/simulation-demo.png" alt="仿真模块">
-                <h3>仿真分析 (FEA)</h3>
-                <p>应用有限元分析，对模型进行静应力、位移和安全性评估。</p>
-                <a href="simulation.html" class="module-link">查看详情 →</a>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>我们的故事</h3>
+                    <p>在这里详细描述您的项目或企业。解释您为什么开始这个项目，您的使命是什么，以及您希望实现什么目标。</p>
+                    <p>您可以分享您的价值观、愿景或任何其他相关信息，让访问者更好地了解您。</p>
+                    <p>确保内容真实、有吸引力，并能引起目标受众的共鸣。</p>
+                </div>
+                <div class="about-image">
+                    <!-- 这里可以放置图片 -->
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- 功能/服务区域 -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>我们的服务</h2>
+                <p>展示您提供的核心功能或服务</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>服务一</h3>
+                    <p>详细描述您的第一项服务或功能。解释它如何为客户带来价值。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>服务二</h3>
+                    <p>详细描述您的第二项服务或功能。解释它如何为客户带来价值。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>服务三</h3>
+                    <p>详细描述您的第三项服务或功能。解释它如何为客户带来价值。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我们</h2>
+                <p>我们很乐意听取您的意见或问题</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>获取联系</h3>
+                    <p>如果您对我们的服务有任何疑问或想了解更多信息，请通过以下方式联系我们：</p>
+                    <p>电子邮件：example@example.com</p>
+                    <p>电话：(123) 456-7890</p>
+                    <p>地址：您的公司地址</p>
+                </div>
+                <div class="contact-form">
+                    <h3>发送消息</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">电子邮件</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">消息</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
     <footer>
-        <p>© 2023 SolidWorks 实战学习站. 致力于帮助每一位工程师。</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <p>简短描述您的品牌或项目，强调其核心价值和使命。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>链接</h3>
+                    <ul>
+                        <li><a href="#about">关于</a></li>
+                        <li><a href="#features">服务</a></li>
+                        <li><a href="#contact">联系</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>联系信息</h3>
+                    <p>电子邮件：example@example.com</p>
+                    <p>电话：(123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 您的品牌名称。保留所有权利。</p>
+            </div>
+        </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 简单的表单处理（在实际应用中，您需要后端支持）
+        const form = document.querySelector('form');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('感谢您的消息！在实际应用中，这里会将表单数据发送到服务器。');
+                form.reset();
+            });
+        }
+    </script>
 </body>
 </html>
