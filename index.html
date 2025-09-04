@@ -3,60 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>您的网站标题</title>
+    <title>SolidWorks专业学习平台</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* 基础样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background-color: #f8f9fa;
             color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        a {
-            text-decoration: none;
-            color: #4a89dc;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: #2a6bc5;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+            line-height: 1.6;
         }
         
         /* 导航栏样式 */
         nav {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo i {
+            color: white;
+            font-size: 2rem;
+            margin-right: 10px;
         }
         
         .nav-links {
@@ -65,188 +57,157 @@
         }
         
         .nav-links li {
-            margin-left: 25px;
+            margin-left: 30px;
         }
         
-        /* 头部区域样式 */
-        header {
-            background: linear-gradient(135deg, #4a89dc 0%, #2a6bc5 100%);
+        .nav-links a {
             color: white;
-            padding: 120px 0 80px;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* 主内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 0 20px;
+        }
+        
+        /* 标题区域 */
+        .hero {
             text-align: center;
-            margin-top: 60px;
-        }
-        
-        .header-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .header-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #fff;
-            color: #4a89dc;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* 内容区域样式 */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(to right, #0066cc, #0099ff);
+            border-radius: 16px;
+            color: white;
             margin-bottom: 50px;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.2);
         }
         
-        .section-title h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 15px;
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
-        .section-title p {
-            color: #777;
+        .hero p {
+            font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
+            opacity: 0.9;
         }
         
-        /* 关于区域样式 */
-        .about-content {
+        /* 阶段卡片样式 */
+        .stages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stage-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stage-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 102, 204, 0.15);
+        }
+        
+        .stage-header {
+            background: linear-gradient(to right, #0099ff, #0066cc);
+            color: white;
+            padding: 20px;
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
         }
         
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 30px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            background-color: #eee;
-            height: 300px;
-            border-radius: 10px;
-        }
-        
-        /* 功能/服务区域样式 */
-        .features {
-            background-color: #f5f7fa;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #4a89dc;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-        }
-        
-        /* 联系区域样式 */
-        .contact-content {
+        .stage-number {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #0066cc;
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-        }
-        
-        /* 页脚样式 */
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 20px;
+            margin-right: 15px;
             font-size: 1.2rem;
         }
         
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .stage-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .stage-content {
+            padding: 25px;
+        }
+        
+        .learning-goal {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .learning-goal h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .learning-goal h3 i {
+            margin-right: 10px;
+        }
+        
+        .resources, .website-content {
+            margin-top: 20px;
+        }
+        
+        h4 {
+            color: #0066cc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+        
+        h4 i {
+            margin-right: 10px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            color: #0066cc;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
         
         /* 响应式设计 */
@@ -255,181 +216,260 @@
                 display: none;
             }
             
-            .header-content h1 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
-            .about-text, .about-image {
-                flex: 100%;
-                padding-right: 0;
-                margin-bottom: 30px;
+            .stages-container {
+                grid-template-columns: 1fr;
             }
+        }
+        
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            color: #666;
+            border-top: 1px solid #eaeaea;
         }
     </style>
 </head>
 <body>
     <!-- 导航栏 -->
     <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">您的品牌</a>
-            <ul class="nav-links">
-                <li><a href="#about">关于</a></li>
-                <li><a href="#features">功能</a></li>
-                <li><a href="#contact">联系</a></li>
-            </ul>
+        <div class="logo">
+            <i class="fas fa-drafting-compass"></i>
+            <div class="logo-text">SolidWorks学习平台</div>
         </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">首页</a></li>
+            <li><a href="#">学习资源</a></li>
+            <li><a href="#">模型库</a></li>
+            <li><a href="#">教程</a></li>
+        </ul>
     </nav>
 
-    <!-- 头部区域 -->
-    <header>
-        <div class="container header-content">
-            <h1>欢迎来到我们的网站</h1>
-            <p>这里是一段简短而有力的描述，说明您的网站或项目的价值和目的。</p>
-            <a href="#contact" class="btn">了解更多</a>
-        </div>
-    </header>
+    <!-- 主内容区域 -->
+    <div class="container">
+        <!-- 标题区域 -->
+        <section class="hero">
+            <h1>SolidWorks专业学习路径</h1>
+            <p>从零开始，系统掌握SolidWorks设计与仿真技能</p>
+        </section>
 
-    <!-- 关于区域 -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>关于我们</h2>
-                <p>简单介绍您的项目、团队或使命</p>
+        <!-- 阶段一 -->
+        <section class="stage-card">
+            <div class="stage-header">
+                <div class="stage-number">1</div>
+                <h2 class="stage-title">打下坚实基础</h2>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>我们的故事</h3>
-                    <p>在这里详细描述您的项目或企业。解释您为什么开始这个项目，您的使命是什么，以及您希望实现什么目标。</p>
-                    <p>您可以分享您的价值观、愿景或任何其他相关信息，让访问者更好地了解您。</p>
-                    <p>确保内容真实、有吸引力，并能引起目标受众的共鸣。</p>
+            <div class="stage-content">
+                <div class="learning-goal">
+                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                    <p>熟悉SolidWorks界面、掌握基本文件操作和视图控制。</p>
                 </div>
-                <div class="about-image">
-                    <!-- 这里可以放置图片 -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 功能/服务区域 -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>我们的服务</h2>
-                <p>展示您提供的核心功能或服务</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>服务一</h3>
-                    <p>详细描述您的第一项服务或功能。解释它如何为客户带来价值。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>服务二</h3>
-                    <p>详细描述您的第二项服务或功能。解释它如何为客户带来价值。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>服务三</h3>
-                    <p>详细描述您的第三项服务或功能。解释它如何为客户带来价值。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系区域 -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>联系我们</h2>
-                <p>我们很乐意听取您的意见或问题</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>获取联系</h3>
-                    <p>如果您对我们的服务有任何疑问或想了解更多信息，请通过以下方式联系我们：</p>
-                    <p>电子邮件：example@example.com</p>
-                    <p>电话：(123) 456-7890</p>
-                    <p>地址：您的公司地址</p>
-                </div>
-                <div class="contact-form">
-                    <h3>发送消息</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">姓名</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">电子邮件</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">消息</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">发送消息</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>关于我们</h3>
-                    <p>简短描述您的品牌或项目，强调其核心价值和使命。</p>
-                </div>
-                <div class="footer-section">
-                    <h3>链接</h3>
+                
+                <div class="resources">
+                    <h4><i class="fas fa-book"></i>学习资源</h4>
                     <ul>
-                        <li><a href="#about">关于</a></li>
-                        <li><a href="#features">服务</a></li>
-                        <li><a href="#contact">联系</a></li>
+                        <li>官方内置教程：打开SolidWorks，点击【帮助】→【SolidWorks教程】</li>
+                        <li>图书参考：《SOLIDWORKS 2022中文版从入门到精通》或《SOLIDWORKS 2024中文版机械设计从入门到精通》的概述章节</li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>联系信息</h3>
-                    <p>电子邮件：example@example.com</p>
-                    <p>电话：(123) 456-7890</p>
+                
+                <div class="website-content">
+                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                    <ul>
+                        <li>学习笔记：用图文记录软件安装、界面布局、自定义设置的过程和心得</li>
+                        <li>术语表：创建一个"SolidWorks核心术语"页面，解释"特征管理器"、"设计树"、"基准面"等概念</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 您的品牌名称。保留所有权利。</p>
+        </section>
+
+        <!-- 阶段二 -->
+        <section class="stage-card">
+            <div class="stage-header">
+                <div class="stage-number">2</div>
+                <h2 class="stage-title">草图绘制——一切建模的根基</h2>
             </div>
-        </div>
+            <div class="stage-content">
+                <div class="learning-goal">
+                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                    <p>熟练掌握各种草图工具、完全定义草图（几何关系与尺寸约束）。</p>
+                </div>
+                
+                <div class="resources">
+                    <h4><i class="fas fa-book"></i>学习资源</h4>
+                    <ul>
+                        <li>官方教程：继续学习SolidWorks自带教程中的草图部分</li>
+                        <li>系统练习：寻找100张平面草图练习题</li>
+                        <li>视频教程：在B站搜索"SolidWorks 草图教程"，观看播放量高的系列视频</li>
+                    </ul>
+                </div>
+                
+                <div class="website-content">
+                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                    <ul>
+                        <li>练习存档：将你练习的100张草图截图（标注尺寸的最终状态）整理发布，并附上难点和技巧</li>
+                        <li>技巧总结：写一篇"完全定义草图的十大技巧"或"常见草图错误及解决方法"的文章</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段三 -->
+        <section class="stage-card">
+            <div class="stage-header">
+                <div class="stage-number">3</div>
+                <h2 class="stage-title">零件建模——从二维到三维的飞跃</h2>
+            </div>
+            <div class="stage-content">
+                <div class="learning-goal">
+                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                    <p>掌握核心特征工具（拉伸、旋转、扫描、放样）、应用放置特征（圆角、倒角、抽壳、孔）、学会特征编辑（阵列、镜像）。</p>
+                </div>
+                
+                <div class="resources">
+                    <h4><i class="fas fa-book"></i>学习资源</h4>
+                    <ul>
+                        <li>图书实例：精学《SOLIDWORKS 2022中文版从入门到精通》中的第3、4、5章</li>
+                        <li>大量练习：寻找所谓的"SolidWorks 300例"图纸或练习资源进行实战</li>
+                        <li>视频辅助：当某个特征遇到困难时，去B站搜索具体关键词教程</li>
+                    </ul>
+                </div>
+                
+                <div class="website-content">
+                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                    <ul>
+                        <li>模型库：将你练习的经典模型整理并提供下载（注意只分享你自己的练习成果）</li>
+                        <li>建模过程：录制一些复杂模型的建模过程屏幕录像，并配文解释你的建模思路和步骤</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段四 -->
+        <section class="stage-card">
+            <div class="stage-header">
+                <div class="stage-number">4</div>
+                <h2 class="stage-title">装配体设计——让零件"动"起来</h2>
+            </div>
+            <div class="stage-content">
+                <div class="learning-goal">
+                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                    <p>理解并应用各种配合关系、掌握自下而上和自上而下的设计方法、进行干涉检查、创建爆炸视图。</p>
+                </div>
+                
+                <div class="resources">
+                    <h4><i class="fas fa-book"></i>学习资源</h4>
+                    <ul>
+                        <li>官方教程：学习SolidWorks教程中的装配体部分</li>
+                        <li>实战项目：找一些小型装配体的教程开始练习，然后尝试分解一些大型设备的装配过程</li>
+                        <li>标准件库：学习使用Toolbox或设计库插入标准件（如螺栓、轴承）</li>
+                    </ul>
+                </div>
+                
+                <div class="website-content">
+                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                    <ul>
+                        <li>装配过程：撰写图文教程，展示一个装配体的完整装配流程，并解释关键配合的选择</li>
+                        <li>爆炸视图：展示你制作的爆炸视图动画，并说明其工程意义</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段五 -->
+        <section class="stage-card">
+            <div class="stage-header">
+                <div class="stage-number">5</div>
+                <h2 class="stage-title">工程图——与生产对接的桥梁</h2>
+            </div>
+            <div class="stage-content">
+                <div class="learning-goal">
+                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                    <p>将3D模型转换为符合标准的2D工程图、创建各种视图（剖视图、局部放大图）、标注尺寸与公差、输出图纸。</p>
+                </div>
+                
+                <div class="resources">
+                    <h4><i class="fas fa-book"></i>学习资源</h4>
+                    <ul>
+                        <li>图书参考：学习《SOLIDWORKS 2022中文版从入门到精通》第8章（工程图设计）</li>
+                        <li>国标规范：搜索并学习中国国家标准（GB）关于机械制图的规范</li>
+                        <li>练习：为你之前创建的所有重要零件和装配体生成工程图</li>
+                    </ul>
+                </div>
+                
+                <div class="website-content">
+                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                    <ul>
+                        <li>工程图示例：展示你的工程图作品，并写文章解释如何设置符合GB的图纸模板、标注样式等</li>
+                        <li>常见问题：总结"工程图转CAD时比例不对"等问题的解决方法</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阶段六 -->
+        <section class="stage-card">
+            <div class="stage-header">
+                <div class="stage-number">6</div>
+                <h2 class="stage-title">仿真分析（FEA）——验证设计的利器</h2>
+            </div>
+            <div class="stage-content">
+                <div class="learning-goal">
+                    <h3><i class="fas fa-bullseye"></i>学习目标</h3>
+                    <p>了解有限元分析基本流程、进行简单的静应力分析、能解读应力、位移、安全系数等结果。</p>
+                </div>
+                
+                <div class="resources">
+                    <h4><i class="fas fa-book"></i>学习资源</h4>
+                    <ul>
+                        <li>入门模块：使用SolidWorks内置的SimulationXpress（入门版）进行初步体验</li>
+                        <li>完整流程：学习《SOLIDWORKS 2022中文版从入门到精通》第10章（有限元分析）</li>
+                        <li>实例操作：对一个简单的悬臂梁或支架进行应力分析</li>
+                    </ul>
+                </div>
+                
+                <div class="website-content">
+                    <h4><i class="fas fa-lightbulb"></i>网站内容建议</h4>
+                    <ul>
+                        <li>分析案例：展示你的仿真分析项目，解释分析设置和结果解读</li>
+                        <li>最佳实践：分享有限元分析中的技巧和常见错误避免方法</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2023 SolidWorks学习平台 - 专注于机械设计与仿真教育</p>
     </footer>
 
     <script>
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
+        // 简单的滚动效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const stageCards = document.querySelectorAll('.stage-card');
+            
+            stageCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+            
+            // 导航栏激活状态
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
             });
         });
-        
-        // 简单的表单处理（在实际应用中，您需要后端支持）
-        const form = document.querySelector('form');
-        if(form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('感谢您的消息！在实际应用中，这里会将表单数据发送到服务器。');
-                form.reset();
-            });
-        }
     </script>
 </body>
 </html>
+
